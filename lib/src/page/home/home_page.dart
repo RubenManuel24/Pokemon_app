@@ -39,7 +39,8 @@ class _HomePageState extends State<HomePage> {
               weight: 5,
             )),
       ),
-      body: Container(
+      body: Watch((_){
+        return Container(
         decoration: BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/boll2.jpg"),
@@ -71,7 +72,7 @@ class _HomePageState extends State<HomePage> {
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${result!.type}",
+                                  "${result!.name}",
                                   style: TextStyle(
                                       fontSize: 14,
                                       color: Colors.black,
@@ -98,10 +99,10 @@ class _HomePageState extends State<HomePage> {
                                 Expanded(
                                   child: Align(
                                     alignment: Alignment.centerRight,
-                                    child: Image.asset(
+                                    child: Image.network(
                                       "${result.image}",
-                                      width: 100,
-                                      height: 100,
+                                      width: 200,
+                                      height: 200,
                                     ),
                                   ),
                                 )
@@ -116,7 +117,8 @@ class _HomePageState extends State<HomePage> {
           ),
        
         ),
-      ),
+      );
+      }),
     bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.white,

@@ -48,12 +48,13 @@ class HomeController {
   Future<void> getAllPokemon() async {
     _loading.value = true;
     final result = await _pokemonRepository.getAllPokemon();
-    _loading.value = false;
 
     if(result.isEmpty){
       print('Listavazia');
     }
     else{
+       _loading.value = false;
+
       _pokemonInfor.value = result;
     }
   }

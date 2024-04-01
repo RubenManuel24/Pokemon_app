@@ -38,7 +38,9 @@ class PokemonRepositoryImpl implements PokemonRepository {
 
    } on DioException catch (e, s) {
      log("Erro ao buscar os pokemon", error: e, stackTrace: s);
-     return [];
+     return [
+
+     ];
    }
    
    

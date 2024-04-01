@@ -21,7 +21,7 @@ class DetalhePokemon extends StatelessWidget {
               SizedBox(
                 height: 370,
                 child: Container(
-                  child: Image.network('${result.image}',
+                  child: Image.asset('assets/images/boll_pokemon_black.png',
                       color: Colors.white.withOpacity(0.1)),
                   padding: EdgeInsets.only(top: 35, left: 15),
                   decoration: BoxDecoration(
@@ -100,7 +100,7 @@ class DetalhePokemon extends StatelessWidget {
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                            value: result.hp as double,
+                            value: result.hp.toDouble(),
                           )
                         ],
                       ),
@@ -116,7 +116,7 @@ class DetalhePokemon extends StatelessWidget {
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                            value: result.attack as double,
+                            value: result.attack.toDouble(),
                           )
                         ],
                       ),
@@ -131,7 +131,7 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.defese as double)
+                          CustomPercentage(value: result.defese.toDouble())
                         ],
                       ),
                       SizedBox(
@@ -140,12 +140,12 @@ class DetalhePokemon extends StatelessWidget {
                       Row(
                         children: [
                           Text(
-                            "Special Defese:",
+                            "SD:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.specialDefese as double)
+                          CustomPercentage(value: result.specialDefese.toDouble())
                         ],
                       ),
                       SizedBox(
@@ -160,7 +160,7 @@ class DetalhePokemon extends StatelessWidget {
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                            value: result.speed as double,
+                            value: result.speed.toDouble(),
                           )
                         ],
                       ),
@@ -172,8 +172,8 @@ class DetalhePokemon extends StatelessWidget {
           ),
           Positioned(
               top: 100,
-              child: Image.asset(
-                "assets/images/pokemon_PNG50.pn",
+              child: Image.network(
+                result.image,
                 width: 300,
               )),
           Positioned(
