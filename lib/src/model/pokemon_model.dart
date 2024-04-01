@@ -28,17 +28,17 @@ class PokemonModel {
 
   factory PokemonModel.fromMap(Map<String, dynamic> map){
     return PokemonModel(
-      id: map['id'], 
-      name: map['name'], 
-      height: map['height'], 
-      weight: map['weight'], 
-      hp: map['stats'][0]['base_stat'], 
-      attack: map['stats'][1]['base_stat'], 
-      defese: map['stats'][2]['base_stat'], 
-      specialDefese: map['stats'][3]['base_stat'], 
-      speed: map['stats'][4]['base_stat'], 
-      type: map['types'][0]['type']['name'], 
-      image: map['sprites']['back_default']);
+      id: map['id'],
+      name: map['name'],
+      height: map['height'],
+      weight: map['weight'],
+      hp: map['stats'][0]['base_stat'],
+      attack: map['stats'][1]['base_stat'],
+      defese: map['stats'][2]['base_stat'],
+      specialDefese: map['stats'][3]['base_stat'],
+      speed: map['stats'][4]['base_stat'],
+      type: map['types'][0]['type']['name'],
+      image: map['sprites']['front_default']);
   }
 
 }

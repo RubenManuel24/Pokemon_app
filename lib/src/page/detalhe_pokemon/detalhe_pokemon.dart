@@ -31,8 +31,8 @@ class DetalhePokemon extends StatelessWidget {
               ),
               Expanded(
                 child: Container(
-                  padding: EdgeInsets.fromLTRB(25, 70, 25, 20),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.fromLTRB(25, 70, 25, 20),
+                  decoration: const BoxDecoration(
                       color: Colors.white,
                       borderRadius:
                           BorderRadius.vertical(top: Radius.circular(30))),
@@ -43,7 +43,7 @@ class DetalhePokemon extends StatelessWidget {
                         children: [
                           Column(
                             children: [
-                              Text(
+                              const Text(
                                 "Name",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
@@ -63,8 +63,8 @@ class DetalhePokemon extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
-                             Text(
-                                "${result.weight}",
+                              Text(
+                                "${result.weight} hg",
                                 style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
@@ -79,7 +79,7 @@ class DetalhePokemon extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "${result.height}",
+                                "${result.height} dm",
                                 style: TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
@@ -145,7 +145,8 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.specialDefese.toDouble())
+                          CustomPercentage(
+                              value: result.specialDefese.toDouble())
                         ],
                       ),
                       SizedBox(
@@ -171,10 +172,14 @@ class DetalhePokemon extends StatelessWidget {
             ],
           ),
           Positioned(
-              top: 100,
+              height: 500,
+              width: 500,
+              top: 10,
               child: Image.network(
+                fit: BoxFit.contain,
+                height: 500,
+                width: 500,
                 result.image,
-                width: 300,
               )),
           Positioned(
               top: 60,
@@ -190,7 +195,9 @@ class DetalhePokemon extends StatelessWidget {
             top: 50,
             left: 20,
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                 Navigator.pushReplacementNamed(context, '/home');
+                },
                 icon: Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
