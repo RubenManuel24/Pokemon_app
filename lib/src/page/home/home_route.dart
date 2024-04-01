@@ -9,7 +9,7 @@ class HomeRoute extends  FlutterGetItPageRouter{
 
   @override
   List<Bind<Object>> get bindings => [
-    Bind.lazySingleton((i) => HomeController())
+    Bind.lazySingleton((i) => HomeController(pokemonRepository: i()))
   ];
 
   @override
