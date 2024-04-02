@@ -38,7 +38,7 @@ class PokemonModel {
       specialDefese: map['stats'][3]['base_stat'],
       speed: map['stats'][4]['base_stat'],
       type: map['types'][0]['type']['name'],
-      image: map['sprites']['front_default']);
+      image: map['sprites']['other']['home']['front_default']);
   }
 
 }

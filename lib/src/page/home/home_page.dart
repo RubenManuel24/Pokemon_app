@@ -52,6 +52,7 @@ class _HomePageState extends State<HomePage> {
                   child: CircularProgressIndicator(),
                 )
               : Padding(
+                
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   child: Expanded(
                     child: GridView.builder(
@@ -104,13 +105,13 @@ class _HomePageState extends State<HomePage> {
                                             fontWeight: FontWeight.w700),
                                       ),
                                     ),
-                                    const SizedBox(height: 5),
+                                    const SizedBox(height: 1),
                                     Expanded(
                                       child: Align(
                                         alignment: Alignment.centerRight,
                                         child: SizedBox(
-                                           width: 1900,
-                                            height: 1900,
+                                           width: 600,
+                                            height: 600,
                                           child: Image.network(
                                             fit: BoxFit.cover,
                                             "${result.image}",

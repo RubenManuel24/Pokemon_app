@@ -23,8 +23,8 @@ class DetalhePokemon extends StatelessWidget {
                 child: Container(
                   child: Image.asset('assets/images/boll_pokemon_black.png',
                       color: Colors.white.withOpacity(0.1)),
-                  padding: EdgeInsets.only(top: 35, left: 15),
-                  decoration: BoxDecoration(
+                  padding: const EdgeInsets.only(top: 35, left: 15),
+                  decoration: const BoxDecoration(
                     color: Colors.red,
                   ),
                 ),
@@ -50,7 +50,7 @@ class DetalhePokemon extends StatelessWidget {
                               ),
                               Text(
                                 "${result.name}",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -58,14 +58,14 @@ class DetalhePokemon extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              Text(
+                              const Text(
                                 "Weight",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 "${result.weight} hg",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -73,14 +73,14 @@ class DetalhePokemon extends StatelessWidget {
                           ),
                           Column(
                             children: [
-                              Text(
+                              const Text(
                                 "Height",
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 "${result.height} dm",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -88,81 +88,80 @@ class DetalhePokemon extends StatelessWidget {
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 40,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "HP:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                            value: result.hp.toDouble(),
+                            value: result.hp.floorToDouble(),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "Attack:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                            value: result.attack.toDouble(),
+                            value: result.attack.floorToDouble(),
                           )
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "Defese:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.defese.toDouble())
+                          CustomPercentage(
+                              value: result.defese.floorToDouble())
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "SD:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
                           CustomPercentage(
-                              value: result.specialDefese.toDouble())
+                              value: result.specialDefese.floorToDouble())
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 20,
                       ),
                       Row(
                         children: [
-                          Text(
+                          const Text(
                             "Speed:",
                             style: TextStyle(
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(
-                            value: result.speed.toDouble(),
-                          )
+                          CustomPercentage(value: result.speed.floorToDouble())
                         ],
                       ),
                     ],
@@ -172,13 +171,13 @@ class DetalhePokemon extends StatelessWidget {
             ],
           ),
           Positioned(
-              height: 500,
-              width: 500,
-              top: 10,
+              height: 300,
+              width: 300,
+              top: 20,
               child: Image.network(
                 fit: BoxFit.contain,
-                height: 500,
-                width: 500,
+                height: 300,
+                width: 300,
                 result.image,
               )),
           Positioned(
@@ -196,9 +195,9 @@ class DetalhePokemon extends StatelessWidget {
             left: 20,
             child: IconButton(
                 onPressed: () {
-                 Navigator.pushReplacementNamed(context, '/home');
+                  Navigator.pushReplacementNamed(context, '/home');
                 },
-                icon: Icon(
+                icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
                   size: 30,

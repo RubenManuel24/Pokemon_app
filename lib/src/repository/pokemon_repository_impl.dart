@@ -20,7 +20,7 @@ class PokemonRepositoryImpl implements PokemonRepository {
 
    try{
 
-       final response = await restClient.get('https://pokeapi.co/api/v2/pokemon');
+       final response = await restClient.get('https://pokeapi.co/api/v2/pokemon?offset=50&limit=50');
        final data = response.data;
            final List<dynamic> pokemonResult = data['results'];
            print("POKEMON: ${pokemonResult}");

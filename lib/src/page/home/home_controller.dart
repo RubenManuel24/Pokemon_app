@@ -18,23 +18,41 @@ class HomeController {
  Color colorCardPokemon(String type){
     switch(type){
       case 'fire':
-      return Colors.orange;
+      return const Color(0xFFFF4500);
       case 'water':
-      return Colors.blue;
+      return  Color(0xFF6495ED);
       case 'electric':
-      return Colors.yellow;
+      return Color(0xFFFFFF00);
+      case 'rock':
+      return Color(0xFFA9A9A9);
       case 'normal':
-      return Colors.grey;
+      return Color(0xFFA9A9A9);
       case 'flying':
       return Colors.white;
       case 'ground': 
-      return Colors.brown;
+      return Color(0xFF8B4513);
       case 'fairy': 
-      return Colors.pink;
+      return Color(0xFFFF69B4);
       case 'dark':
-      return const Color.fromARGB(255, 1, 33, 60);
+      return  Color(0xFF483D8B);
       case 'grass':
-      return Colors.green;
+      return Color(0xFF228B22);
+      case 'ice':
+      return Color(0xFF87CEEB);
+      case 'psychic':
+      return Color(0xFFBA55D3);
+      case 'bug':
+      return Color(0xFF008000);
+      case 'poison':
+      return Color(0xFF800080);
+      case 'fighting':
+      return Color(0xFFB22222);
+      case 'ghost':
+      return Color(0xFF4B0082);
+      case 'dragon':
+      return Color(0xFF800080);
+      case 'steel':
+      return Color(0xFFC0C0C0);
       default: {
          return Colors.grey;
       }

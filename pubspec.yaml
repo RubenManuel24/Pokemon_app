@@ -38,6 +38,8 @@ dependencies:
   percent_indicator: ^4.2.3
   dio: ^5.4.2+1
   signals_flutter: ^4.5.1
+  cached_network_image: ^3.3.1
+  path_provider: ^2.1.2
 
 dev_dependencies:
   flutter_test:
