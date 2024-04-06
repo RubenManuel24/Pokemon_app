@@ -187,7 +187,9 @@ class DetalhePokemon extends StatelessWidget {
             top: 50,
             left: 20,
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/home', arguments: result);
+                },
                 icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
