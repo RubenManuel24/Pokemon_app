@@ -1,5 +1,3 @@
-import 'package:flutter/cupertino.dart';
-
 sealed class Either<L, R> {}
 
 class Left<L, R> extends Either {

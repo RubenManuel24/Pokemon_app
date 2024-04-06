@@ -3,9 +3,9 @@ import 'package:percent_indicator/percent_indicator.dart';
 
 class CustomPercentage extends StatelessWidget {
 
-  CustomPercentage({required this.value,});
+  const CustomPercentage({super.key, required this.value,});
 
-  double value;
+  final double value;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class CustomPercentage extends StatelessWidget {
             percent: value / 100,
             center: Text(
               '$value%',
-              style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
             ),
             progressColor: value < 50 ? Colors.red : Colors.blue,
             backgroundColor: Colors.grey[300],

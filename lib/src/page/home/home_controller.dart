@@ -49,13 +49,10 @@ class HomeController {
     _loading.value = true;
     final result = await _pokemonRepository.getAllPokemon();
 
-    if(result.isEmpty){
-      print('Listavazia');
-    }
-    else{
+   
        _loading.value = false;
 
       _pokemonInfor.value = result;
-    }
+    
   }
 }

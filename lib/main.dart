@@ -11,16 +11,16 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return FlutterGetIt(
       bindings: PokemonBindings(),
       pages: [
-        FlutterGetItPageBuilder(page: (_) => SplashPage(), path: '/'),
-        FlutterGetItPageBuilder(page: (_) => HomePage(), path: '/home'),
-        FlutterGetItPageBuilder(page: (_) => DetalhePokemon(), path: '/detalhe'),
+        FlutterGetItPageBuilder(page: (_) => const SplashPage(), path: '/'),
+        FlutterGetItPageBuilder(page: (_) => const HomePage(), path: '/home'),
+        FlutterGetItPageBuilder(page: (_) => const DetalhePokemon(), path: '/detalhe'),
       ],
       builder: (BuildContext context,
           Map<String, Widget Function(BuildContext)> routes,

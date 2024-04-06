@@ -16,6 +16,6 @@ class HomeRoute extends  FlutterGetItPageRouter{
   String get routeName => '/home';
 
   @override
-  WidgetBuilder get view => (_) => HomePage();
+  WidgetBuilder get view => (_) => const HomePage();
 
 }

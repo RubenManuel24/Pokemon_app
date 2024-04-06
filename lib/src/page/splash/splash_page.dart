@@ -48,7 +48,7 @@ class _PlashPageState extends State<SplashPage>
     );
     _controller.forward();
 
-    Future.delayed(Duration(seconds: 4), (){
+    Future.delayed(const Duration(seconds: 4), (){
         Navigator.pushReplacementNamed(context, '/home');
     });
   }

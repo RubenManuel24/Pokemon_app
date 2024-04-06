@@ -1,13 +1,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_getit/flutter_getit.dart';
-import 'package:pokemon_app/src/model/pokemon_model.dart';
 import 'package:pokemon_app/src/page/home/home_controller.dart';
 import 'package:signals_flutter/signals_flutter.dart';
 
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -30,10 +29,10 @@ class _HomePageState extends State<HomePage> {
           "assets/images/logo.webp",
           width: 115,
         ),
-        backgroundColor: Color.fromARGB(255, 156, 13, 3),
+        backgroundColor: const Color.fromARGB(255, 156, 13, 3),
         leading: IconButton(
             onPressed: () {},
-            icon: Icon(
+            icon: const Icon(
               Icons.menu_rounded,
               color: Colors.white,
               weight: 5,
@@ -41,66 +40,66 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Watch((_){
         return Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             image: DecorationImage(
                 image: AssetImage("assets/images/boll2.jpg"),
                 fit: BoxFit.cover,
                 opacity: 0.5)),
-        child: controller.loadibg ? Center(child: CircularProgressIndicator(),) : Padding(
-          padding: EdgeInsets.symmetric(horizontal: 15),
+        child: controller.loadibg ? const Center(child: CircularProgressIndicator(),) : Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
           child: Expanded(
             child: GridView.builder(
-                    physics: NeverScrollableScrollPhysics(),
+                    physics: const NeverScrollableScrollPhysics(),
                     itemCount: controller.pokemonInfor.length,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                         crossAxisCount: 2,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10),
                     itemBuilder: (context, index) {
                       final result = controller.pokemonInfor[index];
-                      print('RESULT: ${result!.image}');
+                      
                       return InkWell(
                         onTap: (){
                           Navigator.pushReplacementNamed(context, '/detalhe', arguments: result);
                         },
                         child: Card(
-                          color: controller.colorCardPokemon(result.type),
+                          color: controller.colorCardPokemon(result!.type),
                           child: Padding(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
                                 Text(
-                                  "${result!.name}",
-                                  style: TextStyle(
+                                  result.name,
+                                  style: const TextStyle(
                                       fontSize: 14,
                                       color: Colors.black,
                                       fontWeight: FontWeight.w700),
                                 ),
-                                SizedBox(height: 3),
+                                const SizedBox(height: 3),
                                 Container(
                                   alignment: Alignment.center,
-                                  padding: EdgeInsets.all(4),
+                                  padding: const EdgeInsets.all(4),
                                   width: 60,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(10),
                                       color: Colors.transparent.withOpacity(0.1)),
                                   child: Text(
                                     textAlign: TextAlign.center,
-                                    "${result!.type}",
-                                    style: TextStyle(
+                                    result.type,
+                                    style: const TextStyle(
                                         fontSize: 12,
                                         color: Colors.black45,
                                         fontWeight: FontWeight.w700),
                                   ),
                                 ),
-                                SizedBox(height: 5),
+                                const SizedBox(height: 5),
                                 Expanded(
                                   child: Align(
                                     alignment: Alignment.centerRight,
                                     child: Image.network(
-                                      "${result.image}",
+                                      result.image,
                                       width: 200,
                                       height: 200,
                                     ),
@@ -122,7 +121,7 @@ class _HomePageState extends State<HomePage> {
     bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.white,
-      backgroundColor: Color.fromARGB(255, 156, 13, 3),
+      backgroundColor: const Color.fromARGB(255, 156, 13, 3),
       items: const [
       BottomNavigationBarItem(
         label: "Home",
