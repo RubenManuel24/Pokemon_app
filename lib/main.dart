@@ -35,11 +35,7 @@ class MyApp extends StatelessWidget {
             fontFamily: 'Montserrat',
             scaffoldBackgroundColor: Colors.white,
           ),
-          routes: {
-            '/': (_) => routes['/']!(context),
-            '/home': (_) => routes['/home']!(context),
-            '/detalhe': (_) => routes['/detalhe']!(context),
-          },
+          
           navigatorObservers: [flutterGetItNavObserver],
         );
       },
