@@ -20,13 +20,15 @@ class MyApp extends StatelessWidget {
       pages: [
         FlutterGetItPageBuilder(page: (_) => const SplashPage(), path: '/'),
         FlutterGetItPageBuilder(page: (_) => const HomePage(), path: '/home'),
-        FlutterGetItPageBuilder(page: (_) => const DetalhePokemon(), path: '/detalhe'),
+        FlutterGetItPageBuilder(
+            page: (_) => const DetalhePokemon(), path: '/detalhe'),
       ],
       builder: (BuildContext context,
           Map<String, Widget Function(BuildContext)> routes,
           NavigatorObserver flutterGetItNavObserver) {
         return MaterialApp(
           title: 'Pokémon',
+          debugShowCheckedModeBanner: false,
           theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
             useMaterial3: true,
@@ -35,8 +37,8 @@ class MyApp extends StatelessWidget {
           ),
           routes: {
             '/': (_) => routes['/']!(context),
-             '/home': (_) => routes['/home']!(context),
-             '/detalhe': (_) => routes['/detalhe']!(context),
+            '/home': (_) => routes['/home']!(context),
+            '/detalhe': (_) => routes['/detalhe']!(context),
           },
           navigatorObservers: [flutterGetItNavObserver],
         );
