@@ -1,46 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getit/flutter_getit.dart';
+import 'package:pokemon_app/screens/splash_screen.dart';
 
-import 'src/bindings/pokemon_bindings.dart';
-import 'src/page/detalhe_pokemon/detalhe_pokemon.dart';
-import 'src/page/home/home_page.dart';
-import 'src/page/splash/splash_page.dart';
-
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(
+      const MyApp(),
+    );
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return FlutterGetIt(
-      bindings: PokemonBindings(),
-      pages: [
-        FlutterGetItPageBuilder(page: (_) => SplashPage(), path: '/'),
-        FlutterGetItPageBuilder(page: (_) => HomePage(), path: '/home'),
-        FlutterGetItPageBuilder(page: (_) => DetalhePokemon(), path: '/detalhe'),
-      ],
-      builder: (BuildContext context,
-          Map<String, Widget Function(BuildContext)> routes,
-          NavigatorObserver flutterGetItNavObserver) {
-        return MaterialApp(
-          title: 'Pokémon',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
-            useMaterial3: true,
-            fontFamily: 'Montserrat',
-            scaffoldBackgroundColor: Colors.white,
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Pokemon Go",
+      theme: ThemeData(
+          fontFamily: "Montserrat",
+          scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.red,
+          iconTheme: const IconThemeData(color: Colors.white),
+          appBarTheme: const AppBarTheme(
+            backgroundColor: Colors.red,
+            iconTheme: IconThemeData(color: Colors.white),
           ),
-          routes: {
-            '/': (_) => routes['/']!(context),
-             '/home': (_) => routes['/home']!(context),
-             '/detalhe': (_) => routes['/detalhe']!(context),
-          },
-          navigatorObservers: [flutterGetItNavObserver],
-        );
-      },
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.red,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.black,
+          )),
+      home: const SplashScreen(),
     );
   }
 }
