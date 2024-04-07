@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/screens/main_frames_page.dart';
 
 void main() => runApp(
       const MyApp(),
@@ -13,32 +14,34 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Pokemon Go",
       theme: ThemeData(
-        fontFamily: "Montserrat",
-        scaffoldBackgroundColor: Colors.white,
-        iconTheme: const IconThemeData(color: Colors.white),
-        appBarTheme: const AppBarTheme(
+          fontFamily: "Montserrat",
+          scaffoldBackgroundColor: Colors.white,
+          iconTheme: const IconThemeData(color: Colors.white),
+          appBarTheme: const AppBarTheme(
             backgroundColor: Colors.red,
-            iconTheme: IconThemeData(color: Colors.white)),
-      ),
-      home: const HomePage(),
-    );
-  }
-}
-
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.menu_rounded,
+            iconTheme: IconThemeData(color: Colors.white),
           ),
-        ),
-      ),
+          bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+            backgroundColor: Colors.red,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.black,
+          )),
+      home: const MainFramesPage(),
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

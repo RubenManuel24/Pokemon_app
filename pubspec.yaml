@@ -38,6 +38,9 @@ dependencies:
   percent_indicator: ^4.2.3
   dio: ^5.4.2+1
   signals_flutter: ^4.5.1
+  http: ^1.2.1
+  skeletonizer: ^1.1.1
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

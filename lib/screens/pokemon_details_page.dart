@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/src/model/pokemon_model.dart';
-import 'widget/custom_percentage.dart';
+import 'package:pokemon_app/global-functions-and-variables/global_variables.dart';
+import 'package:pokemon_app/widgets/custom_linear_percent_indicator.dart';
 
-class DetalhePokemon extends StatelessWidget {
-  const DetalhePokemon({super.key});
+class PokemonDetailsPage extends StatelessWidget {
+  final Map<String, dynamic> pokemonObject;
+  const PokemonDetailsPage({super.key, required this.pokemonObject});
 
   @override
   Widget build(BuildContext context) {
-    final result = ModalRoute.of(context)!.settings.arguments as PokemonModel;
     return Scaffold(
       backgroundColor: Colors.red,
       body: Stack(
@@ -46,7 +46,7 @@ class DetalhePokemon extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                result.name,
+                                "${pokemonObject['name'].toString()[0].toUpperCase()}${pokemonObject['name'].toString().substring(1).toLowerCase()}",
                                 style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
@@ -60,8 +60,8 @@ class DetalhePokemon extends StatelessWidget {
                                 style: TextStyle(
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
-                             Text(
-                                "${result.weight}",
+                              Text(
+                                pokemonObject['weight'].toString(),
                                 style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
@@ -76,7 +76,7 @@ class DetalhePokemon extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "${result.height}",
+                                pokemonObject['height'].toString(),
                                 style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),
@@ -96,8 +96,9 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(
-                            value: result.hp.toDouble(),
+                          CustomLinearPercentIndicator(
+                            value: pokemonObject['stats'][0]['base_stat']
+                                .toDouble(),
                           )
                         ],
                       ),
@@ -112,8 +113,9 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(
-                            value: result.attack.toDouble(),
+                          CustomLinearPercentIndicator(
+                            value: pokemonObject['stats'][1]['base_stat']
+                                .toDouble(),
                           )
                         ],
                       ),
@@ -128,7 +130,9 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.defese.toDouble())
+                          CustomLinearPercentIndicator(
+                              value: pokemonObject['stats'][2]['base_stat']
+                                  .toDouble())
                         ],
                       ),
                       const SizedBox(
@@ -142,7 +146,9 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(value: result.specialDefese.toDouble())
+                          CustomLinearPercentIndicator(
+                              value: pokemonObject['stats'][3]['base_stat']
+                                  .toDouble())
                         ],
                       ),
                       const SizedBox(
@@ -156,8 +162,9 @@ class DetalhePokemon extends StatelessWidget {
                                 fontSize: 16, fontWeight: FontWeight.bold),
                           ),
                           Expanded(child: Container()),
-                          CustomPercentage(
-                            value: result.speed.toDouble(),
+                          CustomLinearPercentIndicator(
+                            value: pokemonObject['stats'][4]['base_stat']
+                                .toDouble(),
                           )
                         ],
                       ),
@@ -169,15 +176,19 @@ class DetalhePokemon extends StatelessWidget {
           ),
           Positioned(
               top: 100,
-              child: Image.network(
-                result.image,
-                width: 300,
+              child: Hero(
+                tag: pokemonObject['name'],
+                child: Image.network(
+                  pokemonObject['sprites']['back_default'],
+                  scale: .1,
+                  width: 300,
+                ),
               )),
           Positioned(
               top: 60,
               right: 20,
               child: Text(
-                "#00${result.id}",
+                "#${numberFormatter.format(pokemonObject['id'].toInt())}",
                 style: TextStyle(
                     color: Colors.white.withOpacity(0.5),
                     fontWeight: FontWeight.w800,
@@ -187,9 +198,7 @@ class DetalhePokemon extends StatelessWidget {
             top: 50,
             left: 20,
             child: IconButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home', arguments: result);
-                },
+                onPressed: () => Navigator.pop(context),
                 icon: const Icon(
                   Icons.arrow_back_rounded,
                   color: Colors.white,
