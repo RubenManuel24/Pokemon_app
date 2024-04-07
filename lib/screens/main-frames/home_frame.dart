@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/global-functions-and-variables/convertPokemonObjectsIntoCards.dart';
+import 'package:pokemon_app/global-functions-and-variables/convert_pokemon_objects_into_cards.dart';
+import 'package:pokemon_app/global-functions-and-variables/generate_list_of_pokemon_cards_for_skeletonizer.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 class HomeFrame extends StatefulWidget {
   const HomeFrame({super.key});
@@ -12,7 +14,6 @@ class _HomeFrameState extends State<HomeFrame> {
   @override
   void initState() {
     super.initState();
-    
   }
 
   @override
@@ -20,19 +21,19 @@ class _HomeFrameState extends State<HomeFrame> {
     return FutureBuilder(
       future: convertPokemonObjectsIntoCards(),
       builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          return GridView.count(
+        if (snapshot.hasError) {
+          return Center(child: Text("Something went wrong: ${snapshot.error}"));
+        }
+        return Skeletonizer(
+          enabled: !snapshot.hasData,
+          child: GridView.count(
               crossAxisCount: 2,
               mainAxisSpacing: 10,
               crossAxisSpacing: 10,
               padding: const EdgeInsets.all(8),
               scrollDirection: Axis.vertical,
-              children: snapshot.data as List<Widget>);
-        }
-        if (snapshot.hasError) {
-          return Text("Deu pau: ${snapshot.error}");
-        }
-        return Text("Nada");
+              children: !snapshot.hasData ? generateListOfPokemonCardsForSkeletonizer():snapshot.data as List<Widget>),
+        );
       },
     );
   }

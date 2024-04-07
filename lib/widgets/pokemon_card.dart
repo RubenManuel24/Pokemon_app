@@ -6,7 +6,7 @@ import 'package:pokemon_app/screens/pokemon_details_page.dart';
 class PokemonCard extends StatelessWidget {
   final Map<String, dynamic> pokemonObject;
 
-  const PokemonCard({super.key, required this.pokemonObject});
+ const PokemonCard({super.key, required this.pokemonObject});
 
   @override
   Widget build(BuildContext context) {

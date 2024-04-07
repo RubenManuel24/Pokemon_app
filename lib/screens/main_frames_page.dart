@@ -4,6 +4,7 @@ import 'package:pokemon_app/screens/main-frames/favorite_frame.dart';
 import 'package:pokemon_app/screens/main-frames/home_frame.dart';
 import 'package:pokemon_app/screens/main-frames/library_frame.dart';
 import 'package:pokemon_app/screens/main-frames/person_frame.dart';
+import 'package:pokemon_app/widgets/app_drawer.dart';
 
 class MainFramesPage extends StatefulWidget {
   const MainFramesPage({super.key});
@@ -15,28 +16,15 @@ class MainFramesPage extends StatefulWidget {
 class _MainFramesPageState extends State<MainFramesPage> {
   @override
   Widget build(BuildContext context) {
-    void handlePageChange(int pageIndex) {
-      mainFramesPageFramesController.animateToPage(pageIndex,
-          duration: const Duration(milliseconds: 400), curve: Curves.easeInOut);
-      setState(() {
-        currentFrameIndex = pageIndex;
-      });
-    }
-
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          onPressed: () {},
-          icon: const Icon(
-            Icons.menu_rounded,
-          ),
-        ),
         title: Image.asset(
           "assets/images/logo.webp",
           width: 115,
         ),
         centerTitle: true,
       ),
+      drawer: const AppDrawer(),
       body: Stack(
         children: [
           Container(
@@ -49,7 +37,11 @@ class _MainFramesPageState extends State<MainFramesPage> {
           ),
           PageView(
             controller: mainFramesPageFramesController,
-            onPageChanged: (pageIndex) => handlePageChange(pageIndex),
+            onPageChanged: (newFrameIndex) {
+              setState(() {
+                currentFrameIndex = newFrameIndex;
+              });
+            },
             children: const [
               HomeFrame(),
               FavoriteFrame(),
@@ -63,7 +55,10 @@ class _MainFramesPageState extends State<MainFramesPage> {
         type: BottomNavigationBarType.fixed,
         currentIndex: currentFrameIndex,
         showUnselectedLabels: false,
-        onTap: (pageIndex) => handlePageChange(pageIndex),
+        onTap: (newFrameIndex) => mainFramesPageFramesController.animateToPage(
+            newFrameIndex,
+            duration: const Duration(milliseconds: 400),
+            curve: Curves.easeInOut),
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(

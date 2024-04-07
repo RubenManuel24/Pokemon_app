@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pokemon_app/screens/main_frames_page.dart';
+import 'package:pokemon_app/screens/splash_screen.dart';
 
 void main() => runApp(
       const MyApp(),
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           fontFamily: "Montserrat",
           scaffoldBackgroundColor: Colors.white,
+          primaryColor: Colors.red,
           iconTheme: const IconThemeData(color: Colors.white),
           appBarTheme: const AppBarTheme(
             backgroundColor: Colors.red,
@@ -26,22 +27,7 @@ class MyApp extends StatelessWidget {
             selectedItemColor: Colors.white,
             unselectedItemColor: Colors.black,
           )),
-      home: const MainFramesPage(),
+      home: const SplashScreen(),
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
