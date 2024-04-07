@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/custom-dart-extensions/capitalize_string_first_letter.dart';
 import 'package:pokemon_app/global-functions-and-variables/global_variables.dart';
 import 'package:pokemon_app/widgets/custom_linear_percent_indicator.dart';
 
@@ -46,7 +47,9 @@ class PokemonDetailsPage extends StatelessWidget {
                                     fontSize: 16, fontWeight: FontWeight.bold),
                               ),
                               Text(
-                                "${pokemonObject['name'].toString()[0].toUpperCase()}${pokemonObject['name'].toString().substring(1).toLowerCase()}",
+                                pokemonObject['name']
+                                    .toString()
+                                    .capitalizeFirstLetter(),
                                 style: const TextStyle(
                                     color: Colors.blue,
                                     fontWeight: FontWeight.bold),

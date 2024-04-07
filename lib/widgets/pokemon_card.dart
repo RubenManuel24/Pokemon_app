@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pokemon_app/custom-dart-extensions/capitalize_string_first_letter.dart';
 import 'package:pokemon_app/global-functions-and-variables/global_variables.dart';
 import 'package:pokemon_app/screens/pokemon_details_page.dart';
 
@@ -27,7 +28,7 @@ class PokemonCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Text(
-                "${pokemonObject['name'].toString()[0].toUpperCase()}${pokemonObject['name'].toString().substring(1).toLowerCase()}",
+                pokemonObject['name'].toString().capitalizeFirstLetter(),
                 style: const TextStyle(
                     fontSize: 14,
                     color: Colors.black,
@@ -42,7 +43,9 @@ class PokemonCard extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     color: Colors.transparent.withOpacity(0.1)),
                 child: Text(
-                  pokemonObject['types'][0]['type']['name'],
+                  pokemonObject['types'][0]['type']['name']
+                      .toString()
+                      .capitalizeFirstLetter(),
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       fontSize: 12,
